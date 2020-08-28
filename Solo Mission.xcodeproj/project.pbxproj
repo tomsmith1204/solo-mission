@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E282E88624F89F3900E58B67 /* theBoldFont.ttf */; };
 		E28355FA24F3495900D86A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28355F924F3495900D86A03 /* AppDelegate.swift */; };
 		E28355FC24F3495900D86A03 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28355FB24F3495900D86A03 /* GameScene.sks */; };
 		E28355FE24F3495900D86A03 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28355FD24F3495900D86A03 /* Actions.sks */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E282E88624F89F3900E58B67 /* theBoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = theBoldFont.ttf; sourceTree = "<group>"; };
 		E28355F624F3495900D86A03 /* Solo Mission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solo Mission.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28355F924F3495900D86A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28355FB24F3495900D86A03 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		E28355ED24F3495900D86A03 = {
 			isa = PBXGroup;
 			children = (
+				E282E88624F89F3900E58B67 /* theBoldFont.ttf */,
 				E28355F824F3495900D86A03 /* Solo Mission */,
 				E283561324F3495A00D86A03 /* Solo MissionTests */,
 				E283561E24F3495A00D86A03 /* Solo MissionUITests */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */,
 				E283560524F3495900D86A03 /* Main.storyboard in Resources */,
 				E28355FC24F3495900D86A03 /* GameScene.sks in Resources */,
 				E283560724F3495A00D86A03 /* Assets.xcassets in Resources */,

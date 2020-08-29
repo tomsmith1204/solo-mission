@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Game settings.
         currentGameState = GameState.preGame
         gameFont = "The Bold Font"
-        livesNumber = 3
+        livesNumber = 10
         levelNumber = 0
         gameScore = 0
         
@@ -83,7 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
         
         // Player setup.
-        player.setScale(1)
+        player.setScale(0.75)
         player.position = CGPoint(x: self.size.width/2, y: 0 - player.size.height)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
@@ -117,9 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.fontColor = SKColor.white
         tapToStartLabel.zPosition = 1
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        tapToStartLabel.alpha = 0
-        
-        let fadeInAction = SKAction.fadeIn(withDuration: 0.3)
+                let fadeInAction = SKAction.fadeIn(withDuration: 0.3)
         tapToStartLabel.run(fadeInAction)
         self.addChild(tapToStartLabel)
     }
@@ -173,15 +171,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if body1.categoryBitMask == PhysicsCatagories.Player && body2.categoryBitMask == PhysicsCatagories.Enemy {
             // If the player has hit the enemy.
             if body1.node != nil {
-                spawnExplosion(spawnPosition: body1.node!.position)
-                gameOver()
+                loseALife()
+                spawnExplosion(spawnPosition: body2.node!.position)
+                
+                if livesNumber < 1 {
+                    body1.node?.removeFromParent()
+                    gameOver()
+                }
             }
             // If a bullet has hit the enemy.
             if body2.node != nil {
                 spawnExplosion(spawnPosition: body2.node!.position)
             }
             
-            body1.node?.removeFromParent()
             body2.node?.removeFromParent()
         }
         
@@ -206,7 +208,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         moveNode(node: livesLabel, position: CGPoint(x: livesLabel.position.x, y: self.frame.height*0.925), duration: 0.5)
         moveNode(node: player, position: CGPoint(x: player.position.x, y: self.frame.height*0.1), duration: 0.5)
         
-        tapToStartLabel.alpha = 0
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        let deleteNode = SKAction.removeFromParent()
+        let deleteSequence = SKAction.sequence([fadeOut, deleteNode])
+        tapToStartLabel.run(deleteSequence)
         currentGameState = GameState.inGame
         startNewLevel()
     }
@@ -283,7 +288,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameScore+=1
         scoreLabel.text = "Score: \(gameScore)"
         
-        if gameScore == 10 || gameScore == 25 || gameScore == 50 {
+        if gameScore == 10 || gameScore == 20 || gameScore == 30 {
             startNewLevel()
         }
     }
@@ -330,7 +335,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let endPoint = CGPoint(x: getRandX(), y: -self.size.height * 0.2)
             
             let enemy = SKSpriteNode(imageNamed: "enemyShip")
-            enemy.setScale(1)
+            enemy.setScale(0.85)
             enemy.zPosition = 3
             enemy.position = startPoint
             enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
@@ -341,7 +346,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.name = "Enemy"
             self.addChild(enemy)
             
-            let moveEnemy = SKAction.move(to: endPoint, duration: 2)
+            let moveEnemy = SKAction.move(to: endPoint, duration: 4)
             let deleteEnemy = SKAction.removeFromParent()
             let damagePlayer = SKAction.run(loseALife)
             let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, damagePlayer])

@@ -203,7 +203,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if body1.categoryBitMask == PhysicsCatagories.Player && body2.categoryBitMask == PhysicsCatagories.Enemy {
             // If the player has hit the enemy.
-            if body1.node != nil {
+            if body2.node != nil {
                 loseALife()
                 spawnExplosion(spawnPosition: body2.node!.position)
                 

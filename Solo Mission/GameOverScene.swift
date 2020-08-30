@@ -33,7 +33,7 @@ class GameOverScene: SKScene {
         gameFont = "The Bold Font"
         
         // Images.
-        background = SKSpriteNode(imageNamed: "background")
+        background = SKSpriteNode(imageNamed: "BackgroundA")
         
         //Sounds.
         // TODO: Add.

@@ -25,7 +25,7 @@ class MainMenuScene: SKScene {
     
     override init(size: CGSize) {
         // Images.
-        background = SKSpriteNode(imageNamed: "background")
+        background = SKSpriteNode(imageNamed: "BackgroundA")
         background.zPosition = 0
         
         

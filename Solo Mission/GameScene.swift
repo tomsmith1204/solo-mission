@@ -75,7 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    var skip = false
+    var firstScreen: Bool = true
     override func update(_ currentTime: TimeInterval) {
         if lastUpdateTime == 0 {
             lastUpdateTime = currentTime
@@ -86,13 +87,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let amountToMoveBackground = amountToMovePerSecond * CGFloat(deltaFrameTime)
         
-        self.enumerateChildNodes(withName: "Background") {
+        self.enumerateChildNodes(withName: "BackgroundA") {
             background, stop in
             if self.currentGameState == GameState.inGame {
                 background.position.y -= amountToMoveBackground
             }
-            
+        
             if background.position.y < -self.size.height {
+                background.position.y += self.size.height*2
+            }
+        }
+        
+        self.enumerateChildNodes(withName: "BackgroundB") {
+            background, stop in
+            if self.currentGameState == GameState.inGame {
+                background.position.y -= amountToMoveBackground
+            }
+        
+            if background.position.y < -self.size.height {
+//                let amountToRotate: CGFloat = CGFloat(180.degreesToRadians)
+//                let rotationAction = SKAction.rotate(byAngle: amountToRotate, duration: 0)
+//                background.run(rotationAction)
+                //background.xScale = -1
                 background.position.y += self.size.height*2
             }
         }
@@ -102,15 +118,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
+        let backgroundNames = ["BackgroundA","BackgroundB"]
         // Background setup.
         for i in 0...1 {
-            let background: SKSpriteNode = SKSpriteNode(imageNamed: "background")
+            let background: SKSpriteNode = SKSpriteNode(imageNamed: backgroundNames[i])
             background.size = self.size
             background.anchorPoint = CGPoint(x: 0.5, y: 0)
             background.position = CGPoint(x: self.size.width/2,
                                           y: self.size.height*CGFloat(i))
             background.zPosition = 0
-            background.name = "Background"
+            background.name = backgroundNames[i]
             self.addChild(background)
         }
         
@@ -416,4 +433,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let Bullet: UInt32 = 0b10 // 2
         static let Enemy: UInt32 = 0b100 // 4
     }
+}
+
+extension Int {
+    var degreesToRadians: Double { return Double(self) * .pi / 180 }
+    var radiansToDegrees: Double { return Double(self) * 180 / .pi }
+}
+
+extension FloatingPoint {
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
 }

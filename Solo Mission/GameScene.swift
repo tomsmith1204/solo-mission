@@ -29,9 +29,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let gameFont: String
     var livesNumber: Int8
     var levelNumber: Int8
+    var lastUpdateTime: TimeInterval
+    var deltaFrameTime: TimeInterval
+    var amountToMovePerSecond: CGFloat
     
     // Images.
-    let background: SKSpriteNode
     let player: SKSpriteNode
     
     // Sounds.
@@ -51,9 +53,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesNumber = 10
         levelNumber = 0
         gameScore = 0
+        lastUpdateTime = 0
+        deltaFrameTime = 0
+        amountToMovePerSecond = 600.0
         
         // Images.
-        background = SKSpriteNode(imageNamed: "background")
         player = SKSpriteNode(imageNamed: "playerShip")
         
         // Sounds.
@@ -72,15 +76,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        if lastUpdateTime == 0 {
+            lastUpdateTime = currentTime
+        } else {
+            deltaFrameTime = currentTime - lastUpdateTime
+            lastUpdateTime = currentTime
+        }
+        
+        let amountToMoveBackground = amountToMovePerSecond * CGFloat(deltaFrameTime)
+        
+        self.enumerateChildNodes(withName: "Background") {
+            background, stop in
+            if self.currentGameState == GameState.inGame {
+                background.position.y -= amountToMoveBackground
+            }
+            
+            if background.position.y < -self.size.height {
+                background.position.y += self.size.height*2
+            }
+        }
+    }
+    
     override func didMove(to view: SKView){
         
         self.physicsWorld.contactDelegate = self
         
         // Background setup.
-        background.size = self.size
-        background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        background.zPosition = 0
-        self.addChild(background)
+        for i in 0...1 {
+            let background: SKSpriteNode = SKSpriteNode(imageNamed: "background")
+            background.size = self.size
+            background.anchorPoint = CGPoint(x: 0.5, y: 0)
+            background.position = CGPoint(x: self.size.width/2,
+                                          y: self.size.height*CGFloat(i))
+            background.zPosition = 0
+            background.name = "Background"
+            self.addChild(background)
+        }
+        
         
         // Player setup.
         player.setScale(0.75)

@@ -296,7 +296,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let spawn = SKAction.run(spawnEnemy)
         let waitToSpawn = SKAction.wait(forDuration: levelDuration)
-        let spawnSequence = SKAction.sequence([waitToSpawn, spawn])
+        let spawnSequence = SKAction.sequence([spawn, waitToSpawn])
         let spawnForever = SKAction.repeatForever(spawnSequence)
         self.run(spawnForever, withKey: "spawningEnemies")
     }

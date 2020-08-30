@@ -87,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let amountToMoveBackground = amountToMovePerSecond * CGFloat(deltaFrameTime)
         
-        self.enumerateChildNodes(withName: "BackgroundA") {
+        self.enumerateChildNodes(withName: "background") {
             background, stop in
             if self.currentGameState == GameState.inGame {
                 background.position.y -= amountToMoveBackground
@@ -98,20 +98,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        self.enumerateChildNodes(withName: "BackgroundB") {
-            background, stop in
-            if self.currentGameState == GameState.inGame {
-                background.position.y -= amountToMoveBackground
-            }
-        
-            if background.position.y < -self.size.height {
-//                let amountToRotate: CGFloat = CGFloat(180.degreesToRadians)
-//                let rotationAction = SKAction.rotate(byAngle: amountToRotate, duration: 0)
-//                background.run(rotationAction)
-                //background.xScale = -1
-                background.position.y += self.size.height*2
-            }
-        }
+//        self.enumerateChildNodes(withName: "BackgroundB") {
+//            background, stop in
+//            if self.currentGameState == GameState.inGame {
+//                background.position.y -= amountToMoveBackground
+//            }
+//
+//            if background.position.y < -self.size.height {
+//                background.position.y += self.size.height*2
+//            }
+//        }
     }
     
     override func didMove(to view: SKView){
@@ -121,13 +117,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let backgroundNames = ["BackgroundA","BackgroundB"]
         // Background setup.
         for i in 0...1 {
-            let background: SKSpriteNode = SKSpriteNode(imageNamed: backgroundNames[i])
+            let background: SKSpriteNode = SKSpriteNode(imageNamed: backgroundNames[i] )
             background.size = self.size
             background.anchorPoint = CGPoint(x: 0.5, y: 0)
             background.position = CGPoint(x: self.size.width/2,
                                           y: self.size.height*CGFloat(i))
             background.zPosition = 0
-            background.name = backgroundNames[i]
+            background.name = "background"
             self.addChild(background)
         }
         

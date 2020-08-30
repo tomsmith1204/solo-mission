@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E240F5C924FB419100990FB0 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240F5C824FB419100990FB0 /* MainMenuScene.swift */; };
+		E240F5D524FB575900990FB0 /* bgm.wav in Resources */ = {isa = PBXBuildFile; fileRef = E240F5D424FB575900990FB0 /* bgm.wav */; };
 		E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E282E88624F89F3900E58B67 /* theBoldFont.ttf */; };
 		E28355FA24F3495900D86A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28355F924F3495900D86A03 /* AppDelegate.swift */; };
 		E28355FC24F3495900D86A03 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28355FB24F3495900D86A03 /* GameScene.sks */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E240F5C824FB419100990FB0 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		E240F5D424FB575900990FB0 /* bgm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bgm.wav; path = AssetDevelopment/bgm.wav; sourceTree = SOURCE_ROOT; };
 		E282E88624F89F3900E58B67 /* theBoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = theBoldFont.ttf; sourceTree = "<group>"; };
 		E28355F624F3495900D86A03 /* Solo Mission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solo Mission.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28355F924F3495900D86A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +118,9 @@
 				E28355FB24F3495900D86A03 /* GameScene.sks */,
 				E28355FD24F3495900D86A03 /* Actions.sks */,
 				E28355FF24F3495900D86A03 /* GameScene.swift */,
+				E240F5C824FB419100990FB0 /* MainMenuScene.swift */,
 				E2FFCB0324FAF66100C06323 /* GameOverScene.swift */,
+				E240F5D424FB575900990FB0 /* bgm.wav */,
 				E283560124F3495900D86A03 /* GameViewController.swift */,
 				E283562F24F356F100D86A03 /* pew.wav */,
 				E283560324F3495900D86A03 /* Main.storyboard */,
@@ -248,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */,
+				E240F5D524FB575900990FB0 /* bgm.wav in Resources */,
 				E283560524F3495900D86A03 /* Main.storyboard in Resources */,
 				E28355FC24F3495900D86A03 /* GameScene.sks in Resources */,
 				E283560724F3495A00D86A03 /* Assets.xcassets in Resources */,
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E240F5C924FB419100990FB0 /* MainMenuScene.swift in Sources */,
 				E283560024F3495900D86A03 /* GameScene.swift in Sources */,
 				E283560224F3495900D86A03 /* GameViewController.swift in Sources */,
 				E2FFCB0424FAF66100C06323 /* GameOverScene.swift in Sources */,

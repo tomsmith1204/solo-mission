@@ -11,8 +11,6 @@
 		E240F5D524FB575900990FB0 /* bgm.wav in Resources */ = {isa = PBXBuildFile; fileRef = E240F5D424FB575900990FB0 /* bgm.wav */; };
 		E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E282E88624F89F3900E58B67 /* theBoldFont.ttf */; };
 		E28355FA24F3495900D86A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28355F924F3495900D86A03 /* AppDelegate.swift */; };
-		E28355FC24F3495900D86A03 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28355FB24F3495900D86A03 /* GameScene.sks */; };
-		E28355FE24F3495900D86A03 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E28355FD24F3495900D86A03 /* Actions.sks */; };
 		E283560024F3495900D86A03 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28355FF24F3495900D86A03 /* GameScene.swift */; };
 		E283560224F3495900D86A03 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283560124F3495900D86A03 /* GameViewController.swift */; };
 		E283560524F3495900D86A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E283560324F3495900D86A03 /* Main.storyboard */; };
@@ -43,12 +41,10 @@
 
 /* Begin PBXFileReference section */
 		E240F5C824FB419100990FB0 /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
-		E240F5D424FB575900990FB0 /* bgm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bgm.wav; path = AssetDevelopment/bgm.wav; sourceTree = SOURCE_ROOT; };
+		E240F5D424FB575900990FB0 /* bgm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bgm.wav; path = "Solo Mission/bgm.wav"; sourceTree = SOURCE_ROOT; };
 		E282E88624F89F3900E58B67 /* theBoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = theBoldFont.ttf; sourceTree = "<group>"; };
 		E28355F624F3495900D86A03 /* Solo Mission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solo Mission.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28355F924F3495900D86A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E28355FB24F3495900D86A03 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		E28355FD24F3495900D86A03 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		E28355FF24F3495900D86A03 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		E283560124F3495900D86A03 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E283560424F3495900D86A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +86,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E240F5D824FB5BFF00990FB0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E240F5DA24FB5C7300990FB0 /* Storyboards */,
+				E28355FF24F3495900D86A03 /* GameScene.swift */,
+				E240F5C824FB419100990FB0 /* MainMenuScene.swift */,
+				E2FFCB0324FAF66100C06323 /* GameOverScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		E240F5D924FB5C4800990FB0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E240F5D424FB575900990FB0 /* bgm.wav */,
+				E283562F24F356F100D86A03 /* pew.wav */,
+				E283560624F3495A00D86A03 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		E240F5DA24FB5C7300990FB0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E283560324F3495900D86A03 /* Main.storyboard */,
+				E283560824F3495A00D86A03 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		E28355ED24F3495900D86A03 = {
 			isa = PBXGroup;
 			children = (
@@ -114,18 +140,10 @@
 		E28355F824F3495900D86A03 /* Solo Mission */ = {
 			isa = PBXGroup;
 			children = (
+				E240F5D924FB5C4800990FB0 /* Assets */,
+				E240F5D824FB5BFF00990FB0 /* Scenes */,
 				E28355F924F3495900D86A03 /* AppDelegate.swift */,
-				E28355FB24F3495900D86A03 /* GameScene.sks */,
-				E28355FD24F3495900D86A03 /* Actions.sks */,
-				E28355FF24F3495900D86A03 /* GameScene.swift */,
-				E240F5C824FB419100990FB0 /* MainMenuScene.swift */,
-				E2FFCB0324FAF66100C06323 /* GameOverScene.swift */,
-				E240F5D424FB575900990FB0 /* bgm.wav */,
 				E283560124F3495900D86A03 /* GameViewController.swift */,
-				E283562F24F356F100D86A03 /* pew.wav */,
-				E283560324F3495900D86A03 /* Main.storyboard */,
-				E283560624F3495A00D86A03 /* Assets.xcassets */,
-				E283560824F3495A00D86A03 /* LaunchScreen.storyboard */,
 				E283560B24F3495A00D86A03 /* Info.plist */,
 			);
 			path = "Solo Mission";
@@ -256,11 +274,9 @@
 				E282E88724F89F3900E58B67 /* theBoldFont.ttf in Resources */,
 				E240F5D524FB575900990FB0 /* bgm.wav in Resources */,
 				E283560524F3495900D86A03 /* Main.storyboard in Resources */,
-				E28355FC24F3495900D86A03 /* GameScene.sks in Resources */,
 				E283560724F3495A00D86A03 /* Assets.xcassets in Resources */,
 				E283563024F356F200D86A03 /* pew.wav in Resources */,
 				E283560A24F3495A00D86A03 /* LaunchScreen.storyboard in Resources */,
-				E28355FE24F3495900D86A03 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
